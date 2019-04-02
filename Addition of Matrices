@@ -1,0 +1,12 @@
+myMatrix1 = [[12, 12, 5, 3],
+            [51, 2, 3,63],
+            [83, 19, 50,24]]
+
+myMatrix2 = [[1, 5, 3, 2],
+            [1, 2, 3,4],
+            [7, 1, 0,2]]
+
+resultMatrix = [[myMatrix1[i][j] + myMatrix2[i][j] for j in range(len(myMatrix1[0]))] for i in range(len(myMatrix1))]
+
+for i in resultMatrix:
+    print i
