@@ -1,0 +1,13 @@
+inputString = raw_input("Please enter the list of integers separated by commas: ")
+myList = list(map(int,inputString.split(",")))
+arrayLength = len(myList)
+DupFlag = 0
+for i in range(arrayLength):
+    for j in range(arrayLength):
+        if j > i and myList[i] == myList[j]:
+            DupFlag = 1
+            break
+if DupFlag > 0:
+    print "yes"
+else:
+    print "no"
