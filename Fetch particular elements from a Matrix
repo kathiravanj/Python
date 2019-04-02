@@ -1,0 +1,5 @@
+myMatrix = [[41, 25, 'aa',32, 64],
+            ['dd',52, 16, 47],
+            [88, 92, 10,'cc']]
+myList = [i**2 for row in myMatrix for i in row if isinstance(i, int) and i % 2 == 0]
+print myList
