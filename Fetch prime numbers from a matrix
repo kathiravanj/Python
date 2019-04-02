@@ -1,0 +1,6 @@
+myMatrix = [[23, 26, 22, 14, 19, 37, 58, 79],
+            [52, 96, 67, 12, 14, 2, 2, 8, 5],
+            [81, 59, 0, 41, 2, 3]]
+
+myList = [i**2 for row in myMatrix for i in row if (i in (2,3) or (i+1)%6 ==0 or (i-1)%6 == 0) and (i != 1)]
+print myList
