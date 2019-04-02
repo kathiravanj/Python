@@ -1,0 +1,10 @@
+mySentence="While short, this trailer might actually be more stuffed with content than either of the two full length ones. It shows that Tony Stark did manage to get the Guardians of the Galaxy's ship, the Benatar, back to Earth, and the surviving Avengers assemble to use it to go after Thanos. And they do it shorthanded, as Colonel Rhodes (Don Cheadle) notes, "because he killed all our friends."
+myDict = {}
+
+for word in mySentence.split(" "):
+    if len(word) >= 5:
+        if word not in myDict:
+            myDict[word] = 1
+        else:
+            myDict[word] += 1
+print myDict
