@@ -1,0 +1,6 @@
+myMatrix = [[11, 23, 53, 24],
+            	[51, 63, 76],
+            	[68, 89, 10]]
+myList = [i for row in myMatrix for i in row if i % 2 != 0]
+myList.sort(reverse=True)
+print myList
