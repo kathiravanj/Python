@@ -1,0 +1,4 @@
+inputString = raw_input("Please enter the list of integers separated by commas: ")
+myList = list(map(int,inputString.split(",")))
+resultList = [i << 1 for i in myList]
+print resultList
