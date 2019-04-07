@@ -1,0 +1,23 @@
+import os
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+d = os.getcwd()
+filepath= d+"<FILE_PATH>"
+
+def wordCloud(path):
+    selectedText = ""
+    text = open(path).read()
+    words = text.replace(".","").replace(",",'').split(" ")
+    for i in words:
+        if len(i) >= 4:
+            selectedText = selectedText + " " + i
+
+    wordcloud = WordCloud(background_color="white", max_words=2000,max_font_size=40, relative_scaling=.4).generate(selectedText)
+    plt.figure()
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.show()
+
+wordCloud(filepath)
+    
