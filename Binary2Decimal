@@ -1,0 +1,10 @@
+import numpy as np
+inputString = raw_input("Please enter the binary digits separated by space: ")
+val = list(map(int,inputString.split(" ")))
+reversedVal = val[::-1]
+decNum = 0
+for i in range(len(reversedVal)):
+    decNum += int(reversedVal[i]) * int(round(np.exp2(i)))
+
+
+print "Decimal number is:", int(decNum)
