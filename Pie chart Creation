@@ -1,0 +1,24 @@
+import pandas
+import os
+import matplotlib.pyplot as plt
+
+
+relativePath=os.getcwd()
+dataFilePath=relativePath+"<FILE_PATH>"
+data = pandas.read_csv(dataFilePath)
+
+plt.figure(figsize=(14, 8), dpi=80)
+
+label = data.<COL_NAME>
+
+piedata = data.drop(['<COL_NAME>'], axis='columns')
+column_list = list(piedata)
+piedata['total'] = piedata[column_list].sum(axis='columns')
+total = piedata['total'].sum(axis='index')
+emotionPer = piedata['total'].div(total, axis='index') * 100
+
+colors = ['b','g','y','c','m','r']
+
+plt.pie(emotionPer, labels=label, colors=colors,autopct='%1.1f%%', shadow=True, startangle=0)
+plt.title('SOME_TITLE')
+plt.show()
