@@ -1,0 +1,12 @@
+val = int(raw_input("Enter the decimal number: "))
+binaryNum = []
+def findQuotRem(val):
+    while val > 0:
+        Remainder = val % 2
+        val = val / 2
+        binaryNum.append(Remainder)
+        continue
+
+findQuotRem(val)
+binaryNum.reverse()
+print "Binary equivalent of decimal",val, "is:",str(binaryNum).lstrip("[").rstrip("]").replace(",","").replace(" ","")
