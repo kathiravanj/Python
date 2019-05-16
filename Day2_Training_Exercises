@@ -77,16 +77,16 @@ def wordCloud(path):
 wordCloud(filepath)
 =================================
 4. Exception Handling - Implement try and except and finally when you open, write and then close a file.
-
-try:
-   my_file = open("test", "w")
-   try:
-      my_file.write("demo on exception handling")
-   finally:
-      print ("File closed")
-      my_file.close()
-except IOError:
-   print ("Error: File not found or is read-only" )
+def exp():
+    try:
+       my_file = open("test", "w")
+       try:
+          my_file.write("demo on exception handling")
+       finally:
+          print ("File closed")
+          my_file.close()
+    except IOError:
+       print ("Error: File not found or is read-only" )
 
 
 
