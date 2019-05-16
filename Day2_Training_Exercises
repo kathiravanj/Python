@@ -93,7 +93,7 @@ def exp():
 
 5. File Handling - Search a directory for specific filenames
 import fnmatch
-dir():
+def dir():
 for filename in os.listdir('.'):
     if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
         print(filename)
