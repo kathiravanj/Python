@@ -48,11 +48,11 @@ def expiredfd(grocDict):
     for key in grocDict:
         if datetime.datetime.strptime(grocDict[key], '%b %d %Y') < datetime.datetime.now():
             expList.append(key)
-            print expList
+     print expList
 
 
 expiredfd(myGroc)
-
+=============================
 import os
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
@@ -75,7 +75,7 @@ def wordCloud(path):
     plt.show()
 
 wordCloud(filepath)
-
+=================================
 4. Exception Handling - Implement try and except and finally when you open, write and then close a file.
 
 try:
