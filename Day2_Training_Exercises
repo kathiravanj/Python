@@ -77,9 +77,10 @@ def wordCloud(path):
 wordCloud(filepath)
 =================================
 4. Exception Handling - Implement try and except and finally when you open, write and then close a file.
+filepath = "C:\Resources\test.txt"
 def exp():
     try:
-       my_file = open("test", "w")
+       my_file = open(filepath, "w")
        try:
           my_file.write("demo on exception handling")
        finally:
