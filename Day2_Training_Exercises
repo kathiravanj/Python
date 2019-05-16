@@ -102,7 +102,7 @@ dir()
 6. Working with Regular Expression - Cleaning tweets
 import re
 
-str = "I 've watched endgame moviee and Cap America has gotten better in this"
+str = "I 've watched endgame movi and Cap America has gotten better in this"
 tweets = str.split(" ") 
 
 #1.c Word patterns
@@ -110,8 +110,7 @@ apostrophe_map = {"gotten": "got",
     "gud": "good",
     "gotten": "got",
     "Cap": "Captain",
-    "movi": "movie",
-    "moviee": "movie"
+    "movi": "movie"
 }
 
 def word_expand(apo_word):
