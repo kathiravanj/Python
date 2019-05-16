@@ -1,0 +1,113 @@
+1. Recursive Function - classical example of finding factorial of a number
+
+def fact(n):
+    if n == 0:
+        return 1
+    else:
+        return n * fact(n-1)
+ 
+ 
+print(fact(0))
+print(fact(5))
+
+
+2. recursive Function - Find if the given string is a palindrome or not.
+
+def isPalindrome(str):
+    if len(str) == 1:
+        return True
+    elif len(str) == 2:
+        if str[0] == str[1]:
+            return True
+        else:
+            return False
+    else:
+        if str[0] == str[-1]:
+            return isPalindrome(str[1:-1])
+        else:
+            return False
+
+print (isPalindrome("madam"))
+
+3.Module & Package - word cloud
+
+import os
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+d = os.getcwd()
+filepath= d+"/Resources/Avengers_Review.txt"
+
+def wordCloud(path):
+    selectedText = ""
+    text = open(path).read()
+    words = text.replace(".","").replace(",",'').split(" ")
+    for i in words:
+        if len(i) >= 4:
+            selectedText = selectedText + " " + i
+
+    wordcloud = WordCloud(background_color="white", max_words=2000,max_font_size=40, relative_scaling=.4).generate(selectedText)
+    plt.figure()
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.show()
+
+wordCloud(filepath)
+
+4. Exception Handling - Implement try and except and finally when you open, write and then close a file.
+
+try:
+   my_file = open("test", "w")
+   try:
+      my_file.write("demo on exception handling")
+   finally:
+      print ("File closed")
+      my_file.close()
+except IOError:
+   print ("Error: File not found or is read-only" )
+
+
+
+5. File Handling - Search a directory for specific filenames
+
+for filename in os.listdir('.'):
+...     if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
+...         print(filename)
+
+6. Working with Regular Expression - Cleaning tweets
+str = ""
+tweets = str.split(" ") 
+
+# 1.a Remove punctuation
+comma_pattern = re.compile("[,.@\"]+")
+
+1.b Remove Apostrophe's and expand the words
+apos_pattern1 = re.compile("'s")
+apos_pattern2 = re.compile("'ve")
+apos_pattern3 = re.compile("n't")
+apos_pattern4 = re.compile("'")
+
+#1.c Word patterns
+apostrophe_map = {"gotten": "got",
+    "gud": "good",
+    "gotten": "got",
+    "Cap": "Captain",
+    "movi": "movie",
+    "moviee": "movie"
+}
+
+def word_expand(apo_word):
+    for key in apostrophe_map:
+        apo_word = apo_word.replace(key, apostrophe_map[key])
+    return apo_word
+
+for i in range(0, len(tweets)):
+    mapped_tweet = word_expand(tweets[i])
+    mapped_tweet = re.sub(comma_pattern, "", mapped_tweet)
+    mapped_tweet = re.sub(apos_pattern1, " is", mapped_tweet)
+    mapped_tweet = re.sub(apos_pattern2, " have", mapped_tweet)
+    mapped_tweet = re.sub(apos_pattern3, " not", mapped_tweet)
+    mapped_tweet = re.sub(apos_pattern4, "", mapped_tweet)
+    print mapped_tweet
+
+
