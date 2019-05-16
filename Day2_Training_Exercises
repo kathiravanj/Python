@@ -29,7 +29,29 @@ def isPalindrome(str):
 
 print (isPalindrome("madam"))
 
-3.Module & Package - word cloud
+3.Module & Package - datetime - lab doesnt have numpy or wordcloud
+
+import datetime
+
+myGroc={
+  "Whole milk":"Mar 1 2019",
+"Eggs":"Dec 24 2019",
+"Yogurt":"Jan 1 2019",
+"halfnhalf":"May 31 2019",
+"cream":"Jan 3 2019",
+"applejuice":"Aug 31 2019",
+"gaucomole":"Nov 14 2019"
+}
+
+def expiredfd(grocDict):
+    expList = []
+    for key in grocDict:
+        if datetime.datetime.strptime(grocDict[key], '%b %d %Y') < datetime.datetime.now():
+            expList.append(key)
+            print expList
+
+
+expiredfd(myGroc)
 
 import os
 import matplotlib.pyplot as plt
