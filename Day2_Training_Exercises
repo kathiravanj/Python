@@ -100,7 +100,8 @@ for filename in os.listdir('.'):
 dir()
 
 6. Working with Regular Expression - Cleaning tweets
-str = ""
+import re
+str = "I 've watched endgame moviee and Cap America has gotten better in this"
 tweets = str.split(" ") 
 
 # 1.a Remove punctuation
@@ -126,7 +127,7 @@ def word_expand(apo_word):
         apo_word = apo_word.replace(key, apostrophe_map[key])
     return apo_word
 
-for i in range(0, len(tweets)):
+for i in range(len(tweets)):
     mapped_tweet = word_expand(tweets[i])
     mapped_tweet = re.sub(comma_pattern, "", mapped_tweet)
     mapped_tweet = re.sub(apos_pattern1, " is", mapped_tweet)
