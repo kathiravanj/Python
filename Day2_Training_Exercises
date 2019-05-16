@@ -92,10 +92,12 @@ def exp():
 
 
 5. File Handling - Search a directory for specific filenames
-
+import fnmatch
+dir():
 for filename in os.listdir('.'):
-...     if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
-...         print(filename)
+    if fnmatch.fnmatch(filename, 'data_*_backup.txt'):
+        print(filename)
+dir()
 
 6. Working with Regular Expression - Cleaning tweets
 str = ""
