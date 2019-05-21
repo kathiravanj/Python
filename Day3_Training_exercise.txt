@@ -77,7 +77,7 @@ def savetoCSV(newsitems, filename):
 newsitems  = parseXML("C:/python/topnewsfeed.xml")
 savetoCSV(newsitems, 'C:/python/topnews.csv')
 
-4. Saving a dictionary in json file
+4. Coverting the dictionary used in the above program to json format
 
 #http://www.hindustantimes.com/rss/topnews/rssfeed.xml and save as topnewsfeed.xml
 import json
