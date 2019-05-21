@@ -5,6 +5,7 @@ deposit threads to complete.
 
 
 import threading
+import time
 
 class BankAccount():
     def __init__(self, initial_money=0, owner='Donation'):
@@ -13,6 +14,7 @@ class BankAccount():
         self.history_file = open('C:/python/%s.txt' %owner, 'w')
 
     def execute_deposit(self, amount, by='A customer'):
+        time.sleep(5)
         self.history_file.write('Customer %s is depositing %s to bank account of %s with balance %s\n' % (
         by, amount, self.owner, self.money))
         self.money += amount
