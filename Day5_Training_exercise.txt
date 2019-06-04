@@ -1,0 +1,83 @@
+'''
+Go to https://www.sqlite.org/ and click on download menu
+Download the sqlite-tools-win32-x86-3280000.zip file and extract.
+Save the three exe in a directory and add that directory to env variables path
+Go to cmd prompt and type sqlite3
+'''
+import sqlite3
+from sqlite3 import Error
+
+dbpath = "C:/python/demo.db"
+
+
+def sql_conn():
+    try:
+        objConnection = sqlite3.connect(dbpath)
+        return objConnection
+    except Error:
+        print(Error)
+
+def sql_tableCreate(conn):
+    cursorObj = conn.cursor()
+    try:
+        #cursorObj.execute("CREATE TABLE marvel(id integer PRIMARY KEY, name text, power real, type text, sex text)")
+        cursorObj.execute("CREATE TABLE if not exists marvel(id integer PRIMARY KEY, name text, power real, type text, sex text)")
+    except Error:
+        print (Error)
+        print ("Table already exists")
+    finally:
+        conn.commit()
+
+def sql_tableInsert(conn):
+    cursorObj = conn.cursor()
+    try:
+        cursorObj.execute("INSERT INTO marvel VALUES(1, 'Captain America', 9000, 'HERO', 'Male')")
+        cursorObj.execute("INSERT INTO marvel VALUES(2, 'Black Widow', 7000, 'HERO', 'Female')")
+        cursorObj.execute("INSERT INTO marvel VALUES(3, 'Thanos', 9500, 'VILLAIN', 'Male')")
+    except Error:
+        print (Error)
+        print("Table insert issues")
+    finally:
+        conn.commit()
+
+def sql_tableSelect(conn):
+    cursorObj = conn.cursor()
+    cursorObj.execute("select * from marvel")
+    records = cursorObj.fetchall()
+    [print(row) for row in records]
+
+
+def sql_tableUpdate(conn):
+    cursorObj = conn.cursor()
+    cursorObj.execute('UPDATE marvel SET name = "Steve Rogers" where id = 1')
+    conn.commit()
+
+def sql_tableSelectRc(conn):
+    cursorObj = conn.cursor()
+    print("Rowcount before fetching:")
+    print(cursorObj.execute("select * from marvel").rowcount)
+    row = cursorObj.fetchall()
+    print("Rowcount after fetching:")
+    #print (row)
+    print (len(row))
+
+def sql_tableDelete(conn):
+    cursorObj = conn.cursor()
+    cursorObj.execute("delete from marvel where type = 'VILLAIN'")
+    conn.commit()
+
+def sql_tableCol(conn, tab_name):
+    cursorObj = conn.cursor()
+    cursorObj.execute('PRAGMA TABLE_INFO({})'.format(tab_name))
+    names = [tup[1] for tup in cursorObj.fetchall()]
+    print(names)
+
+
+conn = sql_conn()
+sql_tableCreate(conn)
+#sql_tableInsert(conn)
+#sql_tableUpdate(conn)
+sql_tableDelete(conn)
+sql_tableSelect(conn)
+sql_tableSelectRc(conn)
+sql_tableCol(conn,'marvel')
