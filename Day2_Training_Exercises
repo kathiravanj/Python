@@ -126,15 +126,13 @@ comma_pattern = re.compile("[,.@\"]+")
 apos_pattern1 = re.compile("'s")
 apos_pattern2 = re.compile("'ve")
 apos_pattern3 = re.compile("n't")
-apos_pattern4 = re.compile("'")
-
 
 for i in range(len(tweets)):
-    mapped_tweet = word_expand(tweets[i])
-    mapped_tweet = re.sub(comma_pattern, "", mapped_tweet)
+    
+    mapped_tweet = re.sub(comma_pattern, "", tweets[i])
     mapped_tweet = re.sub(apos_pattern1, " is", mapped_tweet)
     mapped_tweet = re.sub(apos_pattern2, " have", mapped_tweet)
     mapped_tweet = re.sub(apos_pattern3, " not", mapped_tweet)
-    mapped_tweet = re.sub(apos_pattern4, "", mapped_tweet)
+    mapped_tweet = word_expand(mapped_tweet)
     print mapped_tweet
 
