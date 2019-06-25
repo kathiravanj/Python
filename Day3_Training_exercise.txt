@@ -34,10 +34,12 @@ for thread_num in range(10):
   t = threading.Thread(target=my_account.execute_deposit, args=(5000,'Customer %d' %thread_num))
   threads_list.append(t)
   t.start()
+  #Start the thread’s activity.
 
 print("All threads are started")
 
 [t.join() for t in threads_list]
+# join Waits until the thread terminates.
 
 print("All threads completed")
 
