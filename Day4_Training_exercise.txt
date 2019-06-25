@@ -35,6 +35,7 @@ print(customer.get_name(), " has Balance: ", customer.balance)
 #Datta Abstarction/hiding Python deosnt have a private keyword to hide data.
 #just change .balance to .__balance everywhere
 # AttributeError: 'BankAccount' object has no attribute 'balance' when you directly access it via customer.__balance
+# This is called data mangling
 # You can use a getter method to get the private data.
 
 
