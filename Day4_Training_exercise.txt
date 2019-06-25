@@ -11,14 +11,15 @@ class BankAccount:
     def debit(self, withdrawal):
         self.balance = self.balance - withdrawal
 
-    def get_balance(self):
-        return self.balance
-
     def get_name(self):
         return self.name
 
     def set_name(self, pname):
         self.name = pname
+               
+    def get_balance(self): # for demonsrtrating data abstraction
+        return self.balance
+        
 # object - my_instance_1
 customer = BankAccount(0, "Kathir")
 
