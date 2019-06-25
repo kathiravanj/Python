@@ -45,10 +45,7 @@ print("All threads are started")
 
 print("All threads completed")
 
-2. Email pretty straight forward- Please try the program given in the 
-slide and email me in case of any errors/issues.
-
-3. Parse an XML file and save required data to csv file.
+2. Parse an XML file and save required data to csv file.
 
 #http://www.hindustantimes.com/rss/topnews/rssfeed.xml and save as topnewsfeed.xml
 import csv
@@ -81,7 +78,7 @@ def savetoCSV(newsitems, filename):
 newsitems  = parseXML("C:/python/topnewsfeed.xml")
 savetoCSV(newsitems, 'C:/python/topnews.csv')
 
-4. Coverting the dictionary used in the above program to json format
+3. Coverting the dictionary used in the above program to json format
 
 #http://www.hindustantimes.com/rss/topnews/rssfeed.xml and save as topnewsfeed.xml
 import json
@@ -112,4 +109,5 @@ news_json = json.dumps(news_dict, indent = 4, sort_keys=True)
 
 print (news_json)
 
-
+4. Email pretty straight forward- Please try the program given in the 
+slide and email me in case of any errors/issues.
