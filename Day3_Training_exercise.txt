@@ -9,6 +9,7 @@ import time
 
 class BankAccount():
     def __init__(self, initial_money=0, owner='Donation'):
+        # constructor method
         self.money = initial_money
         self.owner = owner
         self.history_file = open('C:/python/%s.txt' %owner, 'w')
@@ -21,6 +22,7 @@ class BankAccount():
         self.history_file.write('Account balance after %s deposit: %s\n' % (by, self.money))
 
     def __del__(self):
+        #destructor method
         self.history_file.close()
 
 my_account = BankAccount(1000, "PythonTraining")
