@@ -43,6 +43,7 @@ print(customer.get_name(), " has Balance: ", customer.balance)
 customer.name = "Kavitha"
 customer.__balance = 1000000
 print(customer.name, " has Balance: ", customer.balance)
+print(customer.name, " has Balance: ", customer.get_balance())
 
 #Polymorphism - same function name but diff signature like len("kathir") and len([1,2,3])
 class Person:
