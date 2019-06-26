@@ -45,69 +45,34 @@ print("All threads are started")
 
 print("All threads completed")
 
-2. Parse an XML file and save required data to csv file.
+2. Parse an XML file and fetch only jpg media contents.
+store it in a json format.
 
 #http://www.hindustantimes.com/rss/topnews/rssfeed.xml and save as topnewsfeed.xml
-import csv
-import xml.etree.ElementTree as ET
 
 
-def parseXML(xmlfile):
-    tree = ET.parse(xmlfile)
-    root = tree.getroot()
-    newsitems = []
-    for item in root.findall('./channel/item'):
-        news = {}
-        for child in item:
-            if child.tag == '{http://search.yahoo.com/mrss/}content':
-                news['media'] = child.attrib['url']
-            else:
-                news[child.tag] = child.text.encode('utf8')
-        newsitems.append(news)
-    return newsitems
-
-
-def savetoCSV(newsitems, filename):
-    fields = ['guid', 'title', 'pubDate', 'description', 'link', 'media']
-    with open(filename, 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fields)
-        writer.writeheader()
-        writer.writerows(newsitems)
-
-
-newsitems  = parseXML("C:/python/topnewsfeed.xml")
-savetoCSV(newsitems, 'C:/python/topnews.csv')
-
-3. Coverting the dictionary used in the above program to json format
-
-#http://www.hindustantimes.com/rss/topnews/rssfeed.xml and save as topnewsfeed.xml
 import json
 import xml.etree.ElementTree as ET
-
+import csv
 
 def parseXML(xmlfile):
     tree = ET.parse(xmlfile)
     root = tree.getroot()
-    newsitems = []
     news_dict = {}
+
     for item in root.findall('./channel/item'):
-        news = {}
         for child in item:
             if child.tag == '{http://search.yahoo.com/mrss/}content':
-                news['media'] = child.attrib['url']
                 news_dict.update([(child.attrib['url'],1)])
-            else:
-                news[child.tag] = child.text.encode('utf8')
-        newsitems.append(news)
     return news_dict
 
-
 news_dict  = parseXML("C:/python/topnewsfeed.xml")
-#print (news_dict)
+print (news_dict)
 
+# dumps will store the dictionary contents in a json format
 news_json = json.dumps(news_dict, indent = 4, sort_keys=True)
-
 print (news_json)
+
 
 4. Email pretty straight forward- Please try the program given in the 
 slide and email me in case of any errors/issues.
