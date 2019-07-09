@@ -9,3 +9,12 @@ def first_recurring_char(input_string):
 print(first_recurring_char('ASFBCBDFT'))
 
 # efficient way - using dictionary - worst case runs O(n)
+def first_recurring_char(input_string):
+    counts = {}
+    for char1 in range(len(input_string)):
+        if input_string[char1] in counts:
+            return input_string[char1]
+        else:
+            counts[input_string[char1]] = 1
+    return None                
+print(first_recurring_char('ABCABNA'))
