@@ -1,4 +1,4 @@
-# Naive way 
+# Naive way - using list - loop runs C(n,r) i.e O(n^2) times
 def first_recurring_char(input_string):
     for char1 in range(len(input_string)):
         for char2 in range(len(input_string)):
@@ -7,3 +7,5 @@ def first_recurring_char(input_string):
                     return input_string[char1]
     return None                
 print(first_recurring_char('ASFBCBDFT'))
+
+# efficient way - using dictionary - worst case runs O(n)
