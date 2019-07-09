@@ -1,4 +1,6 @@
-# Naive way - using list - loop runs C(n,2) i.e O(n^2) times
+# Naive way - using list
+# cons - loop runs C(n,2) i.e O(n^2) times
+# and for a string ABCABNA, it will return A even though A re-occured after B because of self join.
 def first_recurring_char(input_string):
     for char1 in range(len(input_string)):
         for char2 in range(len(input_string)):
