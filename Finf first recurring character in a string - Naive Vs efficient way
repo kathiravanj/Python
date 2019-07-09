@@ -1,4 +1,4 @@
-# Naive way - using list - loop runs C(n,r) i.e O(n^2) times
+# Naive way - using list - loop runs C(n,2) i.e O(n^2) times
 def first_recurring_char(input_string):
     for char1 in range(len(input_string)):
         for char2 in range(len(input_string)):
