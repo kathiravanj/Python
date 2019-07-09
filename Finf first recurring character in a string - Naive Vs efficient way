@@ -1,0 +1,9 @@
+# Naive way 
+def first_recurring_char(input_string):
+    for char1 in range(len(input_string)):
+        for char2 in range(len(input_string)):
+            if char1 != char2:
+                if input_string[char1] == input_string[char2]:
+                    return input_string[char1]
+    return None                
+print(first_recurring_char('ASFBCBDFT'))
