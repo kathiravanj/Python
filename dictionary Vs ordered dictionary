@@ -1,0 +1,46 @@
+#Dictionary Vs Ordered dictionary
+import collections
+
+#d1 and d2 are dictionaries with values inserted in different orders
+d1 = {}
+d1['a'] = 1
+d1['b'] = 2
+d1['c'] = 3
+
+d2={}
+d2['b'] = 2
+d2['a'] = 1
+d2['c'] = 3
+
+#d3 and d4 are ordered dictionaries with values inserted in different orders
+d3 = collections.OrderedDict()
+d3['d'] = 1
+d3['e'] = 2
+d3['f'] = 3
+d4 = collections.OrderedDict()
+d4['f'] = 3
+d4['e'] = 2
+d4['d'] = 1
+
+#dictionaries didnt care about order and resulted True whereas OrderedDict
+# dictionaries looked for order also and resulted in false
+print (d1==d2)
+print(d3==d4)
+
+#d5 is an ordered dictionary
+d5 = collections.OrderedDict()
+d5['A'] = 1
+d5['B'] = 1
+d5['C'] = 1
+d5['D'] = 1
+print (d5)
+
+#adding same key, value again wont modify the order
+d5['B'] = 1
+print (d5)
+
+#adding same key, different value again wont modify the order
+d5['A'] = 10
+print (d5)
+
+
