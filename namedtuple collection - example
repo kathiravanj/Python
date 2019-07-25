@@ -1,0 +1,21 @@
+from collections import namedtuple
+n = int(raw_input())
+header = raw_input().split()
+m = header.index('MARKS')
+Stud = namedtuple('Student',header)
+marks = [float(Stud._make(raw_input().split())[m]) for _ in range(n)]
+print('{:.2f}'.format(sum(marks)/len(marks)))
+
+
+'''
+Input
+5
+CLASS      NAME       MARKS      ID
+4          Iain       96         1
+2          Jeremy     77         2
+5          Derek      94         3
+4          Ryan       52         4
+3          Leslie     85         5
+
+Output is average marks
+'''
