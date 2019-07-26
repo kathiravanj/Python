@@ -1,0 +1,27 @@
+from collections import deque
+d = deque()
+for i in range(int(raw_input())):
+    commands = raw_input().split()
+    if len(commands) == 2:
+        eval('d.{0}({1})'.format(commands[0], commands[1]))
+    else:
+        eval('d.{}()'.format(commands[0]))
+print(" ".join(map(str,list(d))))
+
+'''
+Input (stdin)
+Download
+
+6
+append 1
+append 2
+append 3
+appendleft 4
+pop
+popleft
+
+Expected Output
+Download
+
+1 2
+'''
