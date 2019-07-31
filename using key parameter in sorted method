@@ -1,0 +1,16 @@
+#Sort - lower, upper, even and then odd numbers
+#x.isdigit() - x.islower() sorts lower first, then upper and then numbers
+#x in '02468' - puts odd numbers first because even numbers will return True (1). Obviuosly, alphabets will return 0 and remain there.
+#x will sort lower case again in alphabetical order
+
+S = raw_input()
+print("".join(sorted(S, key=lambda x: (x.isdigit() - x.islower(), x in '02468',x))))
+
+
+'''
+Input (stdin)
+Sorting1234
+
+Expected Output
+ginortS1324
+'''
