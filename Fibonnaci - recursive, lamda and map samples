@@ -1,0 +1,22 @@
+#print cubed fibonacci series
+cube = lambda x: pow(x,3)# complete the lambda function 
+def fibonacci(n):
+    flist = []
+    for i in range(n):
+        if i == 0:
+            flist.append(0)
+        elif i == 1:
+            flist.append(1)
+        else:
+            flist.append(flist[i-1] + flist[i-2])
+    return flist
+
+if __name__ == '__main__':
+    n = int(raw_input())
+    print map(cube, fibonacci(n))
+    '''
+    Input (stdin)
+5
+Expected Output
+[0, 1, 1, 8, 27]
+    '''
