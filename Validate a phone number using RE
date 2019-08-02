@@ -1,0 +1,23 @@
+#shuold start with 789 and have only digits
+import re
+pattern = re.compile(r"^[789]{1}\d{9}$")
+N = int(input())
+for _ in range(N):
+    if (bool(pattern.match(input()))):
+        print("YES")
+    else:
+        print("NO")
+        
+'''
+Input (stdin)
+
+2
+9587456281
+1252478965
+
+Your Output (stdout)
+
+YES
+NO
+
+'''
