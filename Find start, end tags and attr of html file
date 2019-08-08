@@ -1,0 +1,47 @@
+from html.parser import HTMLParser
+N = int(input())
+class MyHtmlParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print ("Start :", tag)
+        for attr in attrs:
+            if None in attr:
+                print ("-> " + attr[0] + " > " + "None")
+            else:
+                print ("-> " + " > ".join(attr))
+    def handle_endtag(self, tag):
+        print ("End   :", tag)
+    def handle_startendtag(self, tag, attrs):
+        print ("Empty :", tag)
+        for attr in attrs:
+            if None in attr:
+                print ("-> " + attr[0] + " > " + "None")
+            else:
+                print ("-> " + " > ".join(attr))
+parser = MyHtmlParser()
+for _ in range(N):
+    parser.feed(input())
+
+'''
+nput (stdin)
+
+    2
+    <html><head><title>HTML Parser - I</title></head>
+    <body data-modal-target class='1'><h1>HackerRank</h1><br /></body></html>
+
+Your Output (stdout)
+
+    Start : html
+    Start : head
+    Start : title
+    End : title
+    End : head
+    Start : body
+    -> data-modal-target > None
+    -> class > 1
+    Start : h1
+    End : h1
+    Empty : br
+    End : body
+    End : html
+
+'''
