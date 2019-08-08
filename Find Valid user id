@@ -1,0 +1,29 @@
+import re
+for _ in range(int(input())):
+    st = input()
+    if all([re.search(r, st) for r in [r'[A-Za-z0-9]{10}',r'([A-Z].*){2}',r'([0-9].*){3}']]) and not re.search(r'.*(.).*\1', st):
+        print("Valid")
+    else:
+        print("Invalid")
+        
+        
+'''
+A valid UID must follow the rules below:
+
+    It must contain at least uppercase English alphabet characters.
+    It must contain at least digits ( - ).
+    It should only contain alphanumeric characters ( - , - & - ).
+    No character should repeat.
+    There must be exactly characters in a valid UID.
+
+Input (stdin
+
+    2
+    B1CD102354
+    B1CDEF2354
+
+Expected Output
+
+    Invalid
+    Valid
+'''
