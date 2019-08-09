@@ -1,0 +1,38 @@
+import re
+
+for _ in range(int(input())):
+    S = input()
+    pattern = re.compile(r"^[456]([\d]{15}|[\d]{3}(-[\d]{4}){3})$")
+
+    if re.match(pattern, S) and not re.search(r"([\d])\1\1\1", S.replace("-", "")):
+        print("Valid")
+    else:
+        print("Invalid")
+        
+'''
+► It must start with a 4,5 or6 .
+► It must contain exactly digits.
+► It must only consist of digits (-).
+► It may have digits in groups of , separated by one hyphen "-".
+► It must NOT use any other separator like ' ' , '_', etc.
+► It must NOT have or more consecutive repeated digits. 
+
+Input (stdin)
+
+    6
+    4123456789123456
+    5123-4567-8912-3456
+    61234-567-8912-3456
+    4123356789123456
+    5133-3367-8912-3456
+    5123 - 3567 - 8912 - 3456
+
+Expected Output
+
+    Valid
+    Valid
+    Invalid
+    Valid
+    Invalid
+    Invalid
+'''
