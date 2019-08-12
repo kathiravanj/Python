@@ -1,10 +1,22 @@
+# print elements and attributes of an xml file.
 import xml.etree.ElementTree as etree
 
 def get_attr_number(node):
-    cntr = 0
-    #return sum([len(item.items()) for item in node.iter()])
     for item in node.iter():
-        cntr += len(item.items())
-    return cntr
+        print(item, item.items())
+    
+tree = ET.parse(xmlfile)
+node = tree.getroot()
+get_attr_number(node)
 
-if __name__ == '__main__':
+ # to print count of all attributes in root 
+import xml.etree.ElementTree as etree
+
+def get_attr_number(node):
+   return sum([len(item.items()) for item in node.iter()])
+    
+tree = ET.parse(xmlfile)
+node = tree.getroot()
+print(get_attr_number(node))
+
+
