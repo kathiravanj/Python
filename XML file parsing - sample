@@ -1,0 +1,10 @@
+import xml.etree.ElementTree as etree
+
+def get_attr_number(node):
+    cntr = 0
+    #return sum([len(item.items()) for item in node.iter()])
+    for item in node.iter():
+        cntr += len(item.items())
+    return cntr
+
+if __name__ == '__main__':
