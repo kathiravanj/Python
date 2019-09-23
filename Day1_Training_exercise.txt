@@ -34,9 +34,22 @@ Eg. 2 + 2 = ? Vs Mean of a population in Binomial distribution when sample is kn
 and Python is more of a scripting language for Programmers.
 Eg. Repetitive tasks.
 
-1.Web Development – Django/Flask
-2.ML  - Normal Vs ML program
+1. Web Development - Django/Flask 
+2. ML
+	Normal program - take a pic of an Cat and program that lot of white furs to be identified as a cat
+	ML program - What about black, grey and colored cats? What about different sizes of cat?
+	Feed 1000s of cat pics into a learning algorithm , train it, fit it, optimize it for errors and make it identify input pic.
+	Eg. Recommendation engines - Netflix, Amazon, etc or Autopilot in EVs
+3. Data Analytics and Visualization
+	Normal program - Take a day of crowd coming into wallmart and show a bar diagram that more women shopped Vs men.
+	DA and Vis - what if it happened by chance? or it happened only on a Sunday and not other days?
+	Collect more data and all day graph on same diagram
+4.Scripting - automated tasks - daily programs.
 
+Less popular appls
+1.Gaming system - Pygame
+2.Desktop appns - Java, C++ are preferred
+3.Embedded programming 
 
 
 
