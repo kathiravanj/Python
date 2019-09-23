@@ -1,3 +1,47 @@
+Slide 1
+=======
+    Absolute with level 0 beginners.
+    Start with printing “hello world” to web development.
+    Each module comes with Hands-on session. Encourage to do code along with instructor.
+    Questions to be dropped in webex chat.
+Slide 2 
+=======
+    Anaconda - Spyder
+    Pycharm
+    Python Interpreter IDE
+    Python cmd prompt
+    Google collab
+    Any online python interpreter
+    Ask everyone to verify hello world and confirm!
+    
+Slide 3
+=======
+
+    Reliable - Sleeping for 30 years – So language is not important - Logical thinking over Language - Feed your logical thinking into any syntax instead of one programming language.
+    
+Eg. Finding first recurring character in a string – ABCABNA
+Naive Way – Self join – Cons: loop runs C(n,2) i.e O(n^2) 
+efficient way - using dictionary - check if the char exists in dict. If no, insert it. If yes, then thats the res. worst case runs O(n)
+
+So Dont pet any language or get attached to it. Instead increase aptitude.
+
+
+   OOPS - Its oops in its own way – access modifiers - choose as per need.
+
+    R Vs Python - R is more of a calculator for Data Scientists and less of a programmming langauge.
+Eg. 2 + 2 = ? Vs Mean of a population in Binomial distribution when sample is known.
+
+and Python is more of a scripting language for Programmers.
+Eg. Repetitive tasks.
+
+1.Web Development – Django/Flask
+2.ML  - Normal Vs ML program
+
+
+
+
+
+
 1. Given a score sheet of a quiz test, find the runner up score.
 Learns slicing operator, map, sorting and set datatype
 
