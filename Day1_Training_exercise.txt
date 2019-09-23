@@ -30,6 +30,7 @@ So Dont pet any language or get attached to it. Instead increase aptitude.
 
     R Vs Python - R is more of a calculator for Data Scientists and less of a programmming langauge.
 Eg. 2 + 2 = ? Vs Mean of a population in Binomial distribution when sample is known.
+Sounded geek? Vollyball example - if it was played 25 weeks in an year and what is the probability that it will played this week?
 
 and Python is more of a scripting language for Programmers.
 Eg. Repetitive tasks.
