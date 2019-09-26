@@ -75,7 +75,47 @@ def wordCloud(path):
     plt.show()
 
 wordCloud(filepath)
-=================================
+============================================================================================================================
+3a.re.search()
+================
+
+The re.search() method takes a regular expression pattern and a string and searches for that pattern within the string.
+If the search is successful, search() returns a match object or None otherwise. 
+Therefore, the search is usually immediately followed by an if-statement to test if the search succeeded, 
+as shown in the following example which searches for the pattern 'python:' followed by a 4 letter word (details below):
+
+The 'r' at the start of the pattern string designates a python "raw" string which passes through backslashes 
+without change which is very handy for regular expressions (Java needs this feature badly!). 
+I recommend that you always write pattern strings with the 'r' just as a habit.
+
+str = 'Hello this is python:test!!!'
+match = re.search(r'python:\w\w\w\w', str)
+if match:
+  print 'found', match.group() ## 'found word:cat'
+else:
+  print 'did not find'
+
+3b. email pattern
+=================
+#match email
+str = "hello kathir-avan@gmail.com is my email"
+match = re.search(r'[\w.-]+@[\w.-]+', str)
+if match:
+    print (match.group())  
+
+3c Group extraction
+===================
+The "group" feature of a regular expression allows you to pick out parts of the matching text. 
+Suppose for the emails problem that we want to extract the username and host separately. 
+To do this, add parenthesis ( ) around the username and host in the pattern
+
+str = 'hello kathir-avan@gmail.com is my email'
+match = re.search(r'([\w.-]+)@([\w.-]+)', str)
+if match:
+    print (match.group())   ## 'alice-b@google.com' (the whole match)
+    print (match.group(1))  ## 'alice-b' (the username, group 1)
+    print (match.group(2))  ## 'google.com' (the host, group 2)
+
 4. Exception Handling - Implement try and except and finally when you open, write and then close a file.
 filepath = "C:\Resources\test.txt"
 def exp():
@@ -135,4 +175,5 @@ for i in range(len(tweets)):
     mapped_tweet = re.sub(apos_pattern3, " not", mapped_tweet)
     mapped_tweet = word_expand(mapped_tweet)
     print (mapped_tweet)
+
 
