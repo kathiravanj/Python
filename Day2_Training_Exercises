@@ -122,7 +122,7 @@ def word_expand(apo_word):
 # 1.a Remove punctuation
 comma_pattern = re.compile("[,.@\"]+")
 
-1.b Remove Apostrophe's and expand the words
+#1.b Remove Apostrophe's and expand the words
 apos_pattern1 = re.compile("'s")
 apos_pattern2 = re.compile("'ve")
 apos_pattern3 = re.compile("n't")
@@ -134,5 +134,5 @@ for i in range(len(tweets)):
     mapped_tweet = re.sub(apos_pattern2, " have", mapped_tweet)
     mapped_tweet = re.sub(apos_pattern3, " not", mapped_tweet)
     mapped_tweet = word_expand(mapped_tweet)
-    print mapped_tweet
+    print (mapped_tweet)
 
