@@ -128,7 +128,7 @@ def exp():
           my_file.close()
     except IOError:
        print ("Error: File not found or is read-only" )
-
+exp()
 
 
 5. File Handling - Search a directory for specific filenames
