@@ -1,3 +1,11 @@
+'''
+A double-ended queue, or deque, has the feature of adding and removing elements from either end. 
+The Deque module is a part of collections library. It has the methods for adding and removing elements
+which can be invoked directly with arguments
+By default append will append to right and appendleft will append to left
+similarly pop and popleft
+'''
+
 from collections import deque
 d = deque()
 for i in range(int(raw_input())):
@@ -12,16 +20,17 @@ print(" ".join(map(str,list(d))))
 Input (stdin)
 Download
 
-6
+7
 append 1
 append 2
 append 3
 appendleft 4
 pop
 popleft
+reverse
 
 Expected Output
 Download
 
-1 2
+21
 '''
