@@ -1,0 +1,85 @@
+def pizza_party(max_slices, p_types, p_slices):
+    solutions = None
+    best = 0
+    orig_p_slices = p_slices.copy()
+    remove_idx = 1
+    
+    avail_p_slices = len(p_slices)
+    
+    while avail_p_slices > remove_idx:
+      pizza = []
+      slices = 0
+    
+      # Find the best solution for current p_slices
+      for this_p in p_slices:
+        slices += this_p
+        if (slices >= max_slices):
+          for piz in pizza:
+            if (slices - piz) <= max_slices:
+              pizza.remove(piz)
+              pizza.append(this_p)
+              break
+          break
+        pizza.append(this_p)
+      
+      buy_slices = sum(pizza)
+      if(buy_slices > best):
+        solutions = pizza
+        best = buy_slices
+        if best==max_slices:
+          # Maximum possible score achieved. Exiting..
+          break
+    
+      # Best solution is found for current p_slices. 
+      # Modify p_slices by removing first (lowest) element
+      if len(p_slices) == 1:
+        p_slices = orig_p_slices[remove_idx:].copy()
+        remove_idx += 1
+        continue
+      
+      # From p_slices, remove the highest number found in current solution
+      try:  
+        p_slices.remove(pizza[-1])
+      except Exception as e:
+        print(f'Exception {e}')
+    
+    buy_slices = sum(solutions)
+    print(f'Buy {buy_slices} for {max_slices} people.')
+    print(f'Pizza Types = {solutions}')
+    types_of_pizzas = str(len(solutions))
+    
+    ordering_types = ''
+    
+    for i in solutions:
+        ordering_types += str(orig_p_slices.index(i)) + ' '
+        orig_p_slices[orig_p_slices.index(i)] = 0
+    
+    return types_of_pizzas, ordering_types
+    
+filepath = r"C:\Users\12517\Documents\Kathy\Google"
+input_filename = "e_also_big.in"
+output_filename = "e_also_big.out"
+try:
+    my_file = open(filepath+"/"+input_filename, "r")
+except IOError:
+    print("Error --File not found or read only")
+else:
+    input = my_file.readlines()
+
+input1 = int(input[0].split()[0])
+input2 = int(input[0].split()[1])
+input3 = list(map(int,input[1].split()))
+
+output1, output2 = pizza_party(input1, input2, input3)
+print(output1)
+print(output2)
+try:
+    my_file = open(filepath+"/"+output_filename, "w")
+except IOError:
+    print("Error")
+else:
+    my_file.write(output1)
+    my_file.write("\n")
+    my_file.write(output2)
+    my_file.close()
+    
